@@ -1,4 +1,4 @@
-# hass-deye-modbus
+# hass-deye-modbus (under construction)
 A simple way to directly integrate your Deye inverter into Home Assistant over Modbus. Additional addons are just used for a nice visualisation. 
 
 ## Overview
@@ -25,32 +25,17 @@ Open the Webinterface of your device, set a static IP in your network and adapt 
 ![Label](/img/waveshare_config.png)
 
 ### Home Assistant Modbus
-Create a new file 'modbus.yaml':
-```
-  - name: Inverter1
-    type: tcp
-    host: "Ip of your Waveshare"
-    port: "Port of your Waveshare
-    delay: 3
-    message_wait_milliseconds: 30
-    retries: 3
-    timeout: 5
+1. Create a new file 'modbus.yaml' with this content: [Example](/example/modbus.yaml)
+2. Import 'modbus.yaml' into 'configuration.yaml'
+    ```
+    default_config:
+    ...
+    modbus: !include modbus.yaml
+    ...
+    ```
 
-    sensors:
-    
-      - name: "Deye Deye Heat sink temperature"
-        slave: 1
-        address: 541
-        input_type: holding
-        data_type: int16
-        unit_of_measurement: "°C"
-        scale: 0.1
-        offset: -100
-        precision: 2
-...
-```
-# Sources:
+# Other related projects and resources
 A big Thank you to all of you for making this guide possible
 * https://github.com/StephanJoubert/home_assistant_solarman
 * 
-* 
+

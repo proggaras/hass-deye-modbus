@@ -1,0 +1,570 @@
+  - name: Inverter1
+    type: tcp
+    host: << CHANGE ME IP Modbus TCP converter >>
+    port: << CHANGE ME PORT Modbus TCP converter >>
+    delay: 3
+    message_wait_milliseconds: 30
+    retries: 3
+    timeout: 5
+
+    sensors:
+    
+      - name: "Deye Deye Heat sink temperature"
+        slave: 1
+        address: 541
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "°C"
+        scale: 0.1
+        offset: -100
+        precision: 2
+
+      - name: "Deye load frequency"
+        slave: 1
+        address: 655
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "Hz"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye inverter frequency"
+        slave: 1
+        address: 638
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "Hz"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye PV1 Power"
+        slave: 1
+        address: 672
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "W"
+        precision: 0
+
+      - name: "Deye PV2 Power"
+        slave: 1
+        address: 673
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "W"
+        precision: 0
+
+      - name: "Deye PV1 Voltage"
+        slave: 1
+        address: 676
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye PV2 Voltage"
+        slave: 1
+        address: 677
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye battery temperature"
+        slave: 1
+        address: 586
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "°C"
+        scale: 0.1
+        offset: -100
+        precision: 1
+
+      - name: "Deye battery voltage"
+        slave: 1
+        address: 587
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye battery SoC"
+        slave: 1
+        address: 588
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "%"
+        precision: 1
+
+      - name: "Deye Battery output power"
+        slave: 1
+        address: 590
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        scan_interval: 2
+        state_class: "measurement"
+
+      - name: "Deye Battery output current"
+        slave: 1
+        address: 591
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "A"
+        scale: 0.01
+        precision: 2
+
+      - name: "Deye PV1 Current"
+        slave: 1
+        address: 678
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "A"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye PV2 Current"
+        slave: 1
+        address: 679
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "A"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye Daily Production"
+        slave: 1
+        address: 529
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Total PV Production"
+        slave: 1
+        address: 534
+        input_type: holding
+        data_type: uint32
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Total Grid Power"
+        slave: 1
+        address: 625
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Daily Energy Bought"
+        slave: 1
+        address: 520
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Daily Energy Sold"
+        slave: 1
+        address: 521
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Total Energy Bought"
+        slave: 1
+        address: 522
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Total Energy Sold"
+        slave: 1
+        address: 524
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Total Consumption"
+        slave: 1
+        address: 527
+        input_type: holding
+        data_type: uint32
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 2
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye active power generation of today"
+        slave: 1
+        address: 502
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "kWh"
+        scale: 0.1
+        precision: 1
+        state_class: "total_increasing"
+        device_class: "energy"
+
+      - name: "Deye Grid Current L1"
+        slave: 1
+        address: 630
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "A"
+        scale: 0.01
+        precision: 1
+        state_class: "measurement"
+
+      - name: "Deye Grid Current L2"
+        slave: 1
+        address: 631
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "A"
+        scale: 0.01
+        precision: 1
+        state_class: "measurement"
+
+      - name: "Deye Grid Current L3"
+        slave: 1
+        address: 632
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "A"
+        scale: 0.01
+        precision: 1
+        state_class: "measurement"
+
+      - name: "Deye Grid Voltage L1"
+        slave: 1
+        address: 598
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.1
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Grid Voltage L2"
+        slave: 1
+        address: 599
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.1
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Grid Voltage L3"
+        slave: 1
+        address: 600
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "V"
+        scale: 0.1
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Internal CT L1 Power"
+        slave: 1
+        address: 604
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Internal CT L2 Power"
+        slave: 1
+        address: 605
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Internal CT L3 Power"
+        slave: 1
+        address: 606
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye Internal total Power"
+        slave: 1
+        address: 607
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        state_class: "measurement"
+
+      - name: "Deye External CT L1 Power"
+        slave: 1
+        address: 616
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        state_class: "measurement"
+        precision: 0
+
+      - name: "Deye External CT L2 Power"
+        slave: 1
+        address: 617
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        state_class: "measurement"
+        precision: 0
+
+      - name: "Deye External CT L3 Power"
+        slave: 1
+        address: 618
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        state_class: "measurement"
+        precision: 0
+
+      - name: "Deye External CT total power"
+        slave: 1
+        address: 619
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        precision: 0
+        scan_interval: 2
+        state_class: "measurement"
+
+      - name: "Deye UPS Load total power"
+        slave: 1
+        address: 643
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        state_class: "measurement"
+        precision: 0
+
+      - name: "Deye Load total power"
+        slave: 1
+        address: 653
+        input_type: holding
+        data_type: int16
+        unit_of_measurement: "W"
+        state_class: "measurement"
+        precision: 0
+
+      - name: "Deye Warning1"
+        slave: 1
+        address: 553
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Warning2"
+        slave: 1
+        address: 554
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Warning3"
+        slave: 1
+        address: 555
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Error1"
+        slave: 1
+        address: 556
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Error2"
+        slave: 1
+        address: 557
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Error3"
+        slave: 1
+        address: 558
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Failure status of communication board"
+        slave: 1
+        address: 548
+        input_type: holding
+        data_type: uint16
+        precision: 0
+
+      - name: "Deye Today charge of the battery"
+        slave: 1
+        address: 514
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        state_class: "total_increasing"
+        device_class: "energy"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye Today discharge of the battery"
+        slave: 1
+        address: 515
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        state_class: "total_increasing"
+        device_class: "energy"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye Total charge of the battery"
+        slave: 1
+        address: 516
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        state_class: "total_increasing"
+        device_class: "energy"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye Total discharge of the battery"
+        slave: 1
+        address: 518
+        input_type: holding
+        data_type: uint16
+        unit_of_measurement: "kWh"
+        state_class: "total_increasing"
+        device_class: "energy"
+        scale: 0.1
+        precision: 1
+
+      - name: "Deye Running Status"
+        slave: 1
+        address: 500
+        input_type: holding
+        data_type: uint16
+
+      - name: "Deye Status on/off"
+        slave: 1
+        address: 551
+        input_type: holding
+        data_type: uint16
+
+    switches:
+      - name: "Deye Max A Battery discharge"
+        address: 109
+        write_type: holdings
+        slave: 1
+        command_on: 180
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 109
+            delay: 2
+            state_on: 180
+            state_off: 0
+
+      - name: "Deye Switch on/off (Achtung!)"
+        address: 80
+        write_type: holdings
+        slave: 1
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 80
+            delay: 2
+            state_on: 1
+            state_off: 0
+
+#      - name: "Deye Solar_sell"
+#        write_type: holding
+#        address: 145
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Grid_Charge"
+#        write_type: holding
+#        address: 130
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time of Use"
+#        write_type: holding
+#        address: 146
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 1 charge enable"
+#        write_type: holding
+#        address: 172
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 2 charge enable"
+#        write_type: holding
+#        address: 173
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 3 charge enable"
+#        write_type: holding
+#        address: 174
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 4 charge enable"
+#        write_type: holding
+#        address: 175
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 5 charge enable"
+#        write_type: holding
+#        address: 176
+#        command_on: 1
+#        command_off: 0
+#
+#      - name: "Deye Time point 6 charge enable"
+#        write_type: holding
+#        address: 177
+#        command_on: 1
+#        command_off: 0
