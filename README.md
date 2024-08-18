@@ -37,5 +37,7 @@ Open the Webinterface of your device, set a static IP in your network and adapt 
 # Other related projects and resources
 A big Thank you to all of you for making this guide possible
 * https://github.com/StephanJoubert/home_assistant_solarman
-* 
+* https://dy-support.org/community/solarmann-app/home-assistent-fuer-deye-10k-datenerfassung-mit-waveshare-rs485-to-eth/paged/3/#post-9279
+
+
 
